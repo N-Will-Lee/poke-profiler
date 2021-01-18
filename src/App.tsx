@@ -1,13 +1,14 @@
 import { Pokemon } from "./types";
-import { useGetPokemon } from "./hooks";
+import { useGetPokemon, useSortPokemon } from "./hooks";
 import './App.css';
 
 function App() {
     const [pokemon, loading, error] = useGetPokemon();
+    const sortedPokemon = useSortPokemon(pokemon, "name", true);
 
     return (
         <ul>
-            {pokemon.map((poke) => {
+            {sortedPokemon.map((poke) => {
                 return <li>{poke.name}</li>
             })}
         </ul>

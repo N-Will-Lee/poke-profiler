@@ -1,5 +1,6 @@
 import { Pokemon } from "./types";
 import { useGetPokemon, useSortPokemon } from "./hooks";
+import { PokemonCard } from "./PokemonCard/PokemonCard";
 import './App.css';
 
 function App() {
@@ -7,11 +8,16 @@ function App() {
     const sortedPokemon = useSortPokemon(pokemon, "name", true);
 
     return (
-        <ul>
-            {sortedPokemon.map((poke) => {
-                return <li>{poke.name}</li>
-            })}
-        </ul>
+        <div className="App">
+            <h1>Pokemon</h1>
+            <section className="pokemon-cards">
+                {sortedPokemon.map((poke: Pokemon) => {
+                    return (
+                        <PokemonCard poke={poke}/>
+                    )
+                })}
+            </section>
+        </div>
     );
 }
 

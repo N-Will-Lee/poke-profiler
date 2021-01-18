@@ -15,6 +15,7 @@ export interface Pokemon {
     spawn_time: string,
     multipliers: number[],
     weaknesses: string[],
+    prev_evolution: Evolution[],
     next_evolution: Evolution[]
 }
 
